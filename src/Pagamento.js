@@ -1,12 +1,11 @@
 import { Text, View, StyleSheet, TouchableOpacity, Image, TextInput } from "react-native";
-
 export default function Pagamento() {
     return (
         <View>
             <TouchableOpacity style={styles.btn}>
-                <Text style={styles.btnText}>Detalhes do Pedido</Text>
+                 <Text style={styles.btnText}>Detalhes do Pedido</Text>
             </TouchableOpacity>
-            <Text style={styles.Textovalor}>Valor Total: 25,99</Text>
+            <Text style={styles.Textovalor}>Valor Total: 00,00</Text>
             <View style={styles.caixa}>
                 <Image source={require("../assets/qrcode.jpg")} style={styles.imagem} />
                 <TouchableOpacity style={styles.btn2}>
@@ -73,7 +72,7 @@ const styles = StyleSheet.create({
         marginTop: -70,
         borderWidth: 1,
         marginLeft: 150,
-        backgroundColor: '#DBB739',
+        backgroundColor: '#DBB739'
     },
     btnText2: {
         fontSize: 12,
@@ -114,3 +113,4 @@ const styles = StyleSheet.create({
         lineHeight: 35,
     },
 });
+

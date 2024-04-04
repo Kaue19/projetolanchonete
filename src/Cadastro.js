@@ -14,7 +14,7 @@ export default function Cadastro({ setLogado, setCadastro }) {
     return (
         <View style={styles.Container}>
             <Text style={styles.titulo2}>Cadastro</Text>
-            <Image source={require("../assets/icon.png")} style={styles.imagem} />
+            <Image source={require("../assets/hambgfri.png")} style={styles.imagem} />
             <TextInput style={styles.inputs} placeholder='Email' />
             <TextInput style={styles.inputs} placeholder='Senha' />
             <TouchableOpacity style={styles.btn} onPress={Cadastrar}>

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity } from "react-nativ
 export default function Reclamacoes() {
   return (
     <View style={styles.vie2}>
-      <Text style={styles.text} >Adicionar Imagem +</Text>
+      <View style={styles.addimage}><Text style={styles.text} >Adicionar Imagem +</Text></View>
       <TextInput style={styles.input} placeholder='Digite sua Reclamação' />
       <TouchableOpacity style={styles.btn}>
         <Text style={styles.btnText}>ENVIAR</Text>
@@ -44,10 +44,17 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     fontWeight: "bold",
-    marginTop: 280,
     textAlign: 'center'
   },
   vie2: {
     marginTop: -50
-  }
+  },
+  addimage: {
+   borderWidth: 1,
+   marginTop: 280,
+   height:40,
+   width: 200,
+   marginLeft: 100,
+   borderRadius: 15
+  },
 });
