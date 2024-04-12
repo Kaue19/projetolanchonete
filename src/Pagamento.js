@@ -1,11 +1,30 @@
-import { Text, View, StyleSheet, TouchableOpacity, Image, TextInput } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, Image, TextInput, Alert } from "react-native";
+import { useState } from "react";
+import Carrinho from "./Carrinho";
+
 export default function Pagamento() {
+
+    const onPagamentoConcluido = () => {
+        Alert.alert(
+          'Pagamento Concluído!',
+          'Seu pagamento foi realizado com sucesso, aguarde pacientemente seu pedido.',
+          [{ text: 'OK' }],
+          { cancelable: false },
+        );
+      };
+
+    const [ carrinho, setdetalhesdopedido ] = useState(false);
+
+    if( carrinho ) {
+      return( <Carrinho setdetalhesdopedido={setdetalhesdopedido} />)
+    }
+
     return (
         <View>
             <TouchableOpacity style={styles.btn}>
-                 <Text style={styles.btnText}>Detalhes do Pedido</Text>
+                 <Text style={styles.btnText} onPress={()=> setdetalhesdopedido(true)}>Detalhes do Pedido</Text>
             </TouchableOpacity>
-            <Text style={styles.Textovalor}>Valor Total: 00,00</Text>
+            <Text style={styles.Textovalor}>Valor Total: 0</Text>
             <View style={styles.caixa}>
                 <Image source={require("../assets/qrcode.jpg")} style={styles.imagem} />
                 <TouchableOpacity style={styles.btn2}>
@@ -19,7 +38,7 @@ export default function Pagamento() {
                 <TextInput style={styles.input} placeholder='Código de Segurança:' />
                 <TextInput style={styles.input} placeholder='Endereço:' />
                 <TouchableOpacity style={styles.btn3}>
-                    <Text style={styles.btnText3}>PAGAR</Text>
+                    <Text style={styles.btnText3} onPress={onPagamentoConcluido}>PAGAR</Text>
                 </TouchableOpacity>
             </View>
         </View>

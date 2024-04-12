@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, FlatList, Image, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, FlatList, Image, Text, StyleSheet, Dimensions, Button, TouchableOpacity } from 'react-native';
+import Detalhe from "./Detalhe";
 
 const produtos = [
   {
     id: 1,
-    nome: 'Hambúrguer Especial',
+    nome: 'Hambúrguer              Especial ',
     imagem: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUolMg5w_g-cO1L0-gkIprx06vxoS8fM88OA&usqp=CAU',
     preco: 'R$: 14,90',
   },
@@ -40,7 +41,7 @@ const produtos = [
   },
   {
     id: 7,
-    nome: 'Brigadeiro',
+    nome: 'Brigadeiro             Caseiro',
     imagem: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpcdkTzOR5yLbFCK_fppHMUbYr4oyHEq0Ngg&usqp=CAU',
     preco: 'R$ 4,99',
   },
@@ -58,7 +59,7 @@ const produtos = [
   },
   {
     id: 10,
-    nome: 'Pastéis em geral',
+    nome: 'Pastéis em                 geral',
     imagem: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4GnMHP_HYDiBBrh-O5QdRwvuICsjxyDk2ZQ&usqp=CAU',
     preco: 'R$ 9,99',
   },
@@ -66,6 +67,7 @@ const produtos = [
 
 const TelaHome = () => {
   const [colunas, setColunas] = useState(2);
+
 
   useEffect(() => {
     const atualizarColunas = () => {
@@ -84,12 +86,25 @@ const TelaHome = () => {
       <Image style={styles.imagem} source={{ uri: item.imagem }} />
       <Text style={styles.nome}>{item.nome}</Text>
       <Text style={styles.preco}>{item.preco}</Text>
+      <TouchableOpacity style={styles.btn} onPress={()=> setDetalhe(true)}>
+        <Text style={styles.btnText}>Detalhes</Text>
+      </TouchableOpacity>
+
     </View>
   );
+
+  
+
+  const [ detalhe, setDetalhe ] = useState(false);
+
+  if( detalhe ) {
+    return( <Detalhe setDetalhe={setDetalhe} />)
+  }
 
   return (
     <View style={styles.container}>
       <FlatList
+        setDetalhe={setDetalhe}
         data={produtos}
         renderItem={renderItem}
         numColumns={colunas}
@@ -135,6 +150,16 @@ const styles = StyleSheet.create({
   preco: {
     fontSize: 14,
     textAlign: 'center',
+  },
+  btnText: {
+    textAlign: 'center',
+  },
+  btn:{
+    backgroundColor: "#E68F50",
+    height: 30,
+    width: 176,
+    borderWidth: 1,
+    borderRadius: 10,
   },
 });
 

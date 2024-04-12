@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     },
     caixa: {
         backgroundColor: '#E0CAA6',
-        height: 330,
+        height: 340,
         width: '90%',
         marginLeft: 20,
         marginTop: 10,

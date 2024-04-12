@@ -27,7 +27,7 @@ export default function login({ setLogado, setCadastro }) {
             <TextInput style={styles.inputs} onChangeText={(digitado) => setEmail(digitado)}
                 value={email}
                 placeholder='Email' />
-            <TextInput style={styles.inputs} onChangeText={(digitado) => setSenha(digitado)}
+            <TextInput style={styles.inputs}  onChangeText={(digitado) => setSenha(digitado)}
                 value={senha}
                 placeholder='Senha' />
             <TouchableOpacity style={styles.btn} onPress={Login}>
