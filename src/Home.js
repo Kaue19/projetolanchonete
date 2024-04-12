@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
   btn:{
     backgroundColor: "#E68F50",
     height: 30,
-    width: 176,
+    width: '100%',
     borderWidth: 1,
     borderRadius: 10,
   },
